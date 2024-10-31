@@ -1,4 +1,6 @@
 # Stealc-Config-Extractor
 C2/Strings extractor for Stealc
 
-![Screenshot from 2024-10-23 21-07-13](https://github.com/user-attachments/assets/d7707026-ebd0-4987-81d8-444e2d0005c3)
+> python3 Stealc.py /path/to/unpacked_stealc_bin
+
+![Screenshot from 2024-10-31 20-26-17](https://github.com/user-attachments/assets/bf352819-5c04-4233-a021-0442d4e64f24)
