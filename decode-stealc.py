@@ -64,7 +64,8 @@ def extract_config(data):
     # Try with new method
     if not config_dict.get("C2"):
         with suppress(Exception):
-            # config_dict["Strings"] = []
+            config_dict["Strings"] = []
+            config_dict["C2"] = []
             pe = pefile.PE(data=data, fast_load=False)
             image_base = pe.OPTIONAL_HEADER.ImageBase
             domain = ""
@@ -90,11 +91,11 @@ def extract_config(data):
                     domain = decoded_str
                 elif decoded_str.startswith("/") and decoded_str[-4] == ".":
                     uri = decoded_str
-                #else:
-                #    config_dict["Strings"].append({f"dword_{dword_offset}" : decoded_str})
+                else:
+                    config_dict["Strings"].append({f"dword_{dword_offset}" : decoded_str})
 
             if domain and uri:
-                config_dict.setdefault("C2", []).append(f"{domain}{uri}")
+                config_dict["C2"].append(f"{domain}{uri}")
 
     return config_dict
 
